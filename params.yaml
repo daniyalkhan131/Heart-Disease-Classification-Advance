@@ -1,0 +1,16 @@
+make_dataset:
+  test_split: 0.2
+  seed: 42
+
+build_features:
+  sampling_strategy: 'minority'
+
+train_model:
+  params_grid: {'C': [1,10,50],
+               'kernel': ['poly','linear','rbf','precomputer'],
+             }
+  cv: 5
+
+  params_grid_pipe: {'svm__C': [1,10,50],
+               'svm__kernel': ['poly','linear','rbf','precomputer'],
+             }
