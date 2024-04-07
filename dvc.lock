@@ -5,8 +5,8 @@ stages:
     deps:
     - path: ./data/raw/final_features.csv
       hash: md5
-      md5: a909c7dd75a21187d0399fb32a710ef5
-      size: 5733719
+      md5: a0578a0605d3bdcffa508100d6bd9cac
+      size: 5733720
     - path: ./src/data/make_dataset.py
       hash: md5
       md5: 44c1764e756d22de5c29fa6ce2393b84
@@ -33,10 +33,7 @@ stages:
         train_model.params_grid_pipe:
           svm__C:
           - 1
-          - 10
-          - 50
           svm__kernel:
           - poly
           - linear
           - rbf
-          - precomputer

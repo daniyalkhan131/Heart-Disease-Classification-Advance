@@ -2,7 +2,7 @@ stages:
   make_dataset:
     cmd: python ./src/data/make_dataset.py /data/raw/final_features.csv   
     deps:
-    - /data/raw/final_features.csv
+    - ./data/raw/final_features.csv
     - ./src/data/make_dataset.py
     params:
     - make_dataset.test_split
@@ -12,7 +12,7 @@ stages:
   train_model:
     cmd: python ./src/models/train_model.py /data/interim
     deps:
-    - /data/interim
+    - ./data/interim
     - ./src/models/train_model.py
     params:
     - train_model.params_grid_pipe
