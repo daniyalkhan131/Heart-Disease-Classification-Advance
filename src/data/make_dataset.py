@@ -57,8 +57,8 @@ def main():
     params_file = home_dir.as_posix() + '/params.yaml'
     params = yaml.safe_load(open(params_file))["make_dataset"]
 
-    #input_file = sys.argv[1]
-    input_file='/data/raw/final_features.csv'
+    input_file = sys.argv[1]
+    #input_file='/data/raw/final_features.csv'
     data_path = home_dir.as_posix() + input_file
     output_path = home_dir.as_posix() + '/data/processed'
     
