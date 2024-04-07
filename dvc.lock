@@ -13,8 +13,14 @@ stages:
       size: 2810
     params:
       params.yaml:
-        make_dataset.seed: 42
+        make_dataset.seed: 22
         make_dataset.test_split: 0.2
+    outs:
+    - path: ./data/processed/
+      hash: md5
+      md5: 966edb4cb99e52dd8fc7c7dae028524b.dir
+      size: 328680
+      nfiles: 6
   train_model:
     cmd: python ./src/models/train_model.py /data/interim
     deps:
@@ -37,3 +43,9 @@ stages:
           - poly
           - linear
           - rbf
+    outs:
+    - path: ./models/
+      hash: md5
+      md5: a115f022256072768218a39c590902ed.dir
+      size: 92154
+      nfiles: 1
