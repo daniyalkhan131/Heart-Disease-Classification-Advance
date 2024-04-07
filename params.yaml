@@ -1,6 +1,6 @@
 make_dataset:
   test_split: 0.2
-  seed: 42
+  seed: 22
 
 build_features:
   sampling_strategy: 'minority'

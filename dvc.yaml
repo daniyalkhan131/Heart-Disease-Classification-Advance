@@ -7,8 +7,8 @@ stages:
     params:
     - make_dataset.test_split
     - make_dataset.seed
-    # outs:
-    # - ./data/processed/
+    outs:
+    - ./data/processed/
   train_model:
     cmd: python ./src/models/train_model.py /data/interim
     deps:
@@ -17,8 +17,8 @@ stages:
     params:
     - train_model.params_grid_pipe
     - train_model.cv
-    # outs:
-    # - ./models/
+    outs:
+    - ./models/
   # visualize:
   #   cmd: python .\src\visualization\visualize.py .\models\model.joblib .\data\processed\
   #   deps:
@@ -28,5 +28,5 @@ stages:
   #   outs:
   #   - dvclive
 
-metrics:
-- dvclive/metrics.json
+# metrics:
+# - dvclive/metrics.json
