@@ -1,5 +1,5 @@
 make_dataset:
-  test_split: 0.2
+  test_split: 0.3
   seed: 22
 
 build_features:
@@ -11,6 +11,6 @@ train_model:
              }
   cv: 5
 
-  params_grid_pipe: {'svm__C': [5],
+  params_grid_pipe: {'svm__C': [10],
                'svm__kernel': ['poly','linear','rbf'],
              }
