@@ -2,6 +2,7 @@ from imblearn.over_sampling import SMOTE
 import pathlib
 import numpy as np
 import yaml
+import sys
 
 def load_data(data_path):
     X_train, y_train = np.load(data_path+'/X_train.npy'), np.load(data_path+'/y_train.npy')
@@ -27,7 +28,8 @@ def main():
     params_file = home_dir.as_posix() + '/params.yaml'
     params = yaml.safe_load(open(params_file))["build_features"]
 
-    input_file='/data/processed'
+    # input_file='/data/processed'
+    input_file=sys.argv[1]
     data_path = home_dir.as_posix() + input_file
     X_train, y_train= load_data(data_path)
     X_train, y_train=handle_imbalance(X_train, y_train, params['sampling_strategy'])

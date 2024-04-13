@@ -21,14 +21,32 @@ stages:
       md5: c6e77819dff506ad70f9e8e6c8f7455c.dir
       size: 328680
       nfiles: 6
+  build_features:
+    cmd: python ./src/features/build_features.py /data/processed
+    deps:
+    - path: ./data/processed
+      hash: md5
+      md5: c6e77819dff506ad70f9e8e6c8f7455c.dir
+      size: 328680
+      nfiles: 6
+    - path: ./src/features/build_features.py
+      hash: md5
+      md5: bdc30afd4d352091ec108b205f5ffdbd
+      size: 1254
+    outs:
+    - path: ./data/interim
+      hash: md5
+      md5: ec41a8a022a66a727edf90b47b27e05e.dir
+      size: 351984
+      nfiles: 2
   train_model:
     cmd: python ./src/models/train_model.py /data/interim
     deps:
     - path: ./data/interim
       hash: md5
-      md5: f3a91eed9e06fb899f03e3757ee24e01.dir
+      md5: ec41a8a022a66a727edf90b47b27e05e.dir
       size: 351984
-      nfiles: 3
+      nfiles: 2
     - path: ./src/models/train_model.py
       hash: md5
       md5: f6852a1bc1684d05efb1e75a3d214415
@@ -38,7 +56,9 @@ stages:
         train_model.cv: 5
         train_model.params_grid_pipe:
           svm__C:
-          - 12
+          - 10
+          - 1
+          - 5
           svm__kernel:
           - poly
           - linear
@@ -46,6 +66,6 @@ stages:
     outs:
     - path: ./models/
       hash: md5
-      md5: 9250a491ab78d0323feda6a14abda467.dir
+      md5: 0c7aacfb4601e6f29e1c5708be4df9a1.dir
       size: 86522
       nfiles: 1

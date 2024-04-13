@@ -11,6 +11,6 @@ train_model:
              }
   cv: 5
 
-  params_grid_pipe: {'svm__C': [12],
+  params_grid_pipe: {'svm__C': [10,1,5],
                'svm__kernel': ['poly','linear','rbf'],
              }
